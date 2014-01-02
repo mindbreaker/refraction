@@ -46,7 +46,13 @@ It can also be used as a gem:
 
 In `environments/production.rb`, add Refraction at or near the top of your middleware stack.
 
+Rails 3:
+
     config.middleware.insert_before(::Rack::Lock, ::Refraction, {})
+    
+Rails 4:
+    
+    config.middleware.insert_before(::Rack::Runtime, ::Refraction)
 
 You may want to occasionally turn on Refraction in the development environment for testing
 purposes, but if your rules redirect to other servers that can be a problem.
